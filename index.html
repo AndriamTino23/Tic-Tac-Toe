@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="style.css">
+    <title>TicTacToe</title>
+
+</head>
+<body>
+    <header><span class='title'>Tic Tac Toe</span></header>
+    <main>
+        <div class='titleScreen'>
+            <div class='cardContainer'>
+
+                <div class='card'data-card='1'>
+                    <div class='cardTop'>X</div>
+                    <div class='cardAvatar'>
+                        <iframe id='iframe1'src="https://giphy.com/embed/l41lGnxllmN3YqOyI" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    </div>
+            
+                    <div class='cardBottom'>
+                        <span class='playerOrBot player' id='player1'>Player</span>
+                        <span class='playerOrBot bot' id='bot1'>Bot</span>    
+                    </div>
+                    
+                </div>
+
+                <div class='startContainer'>
+                    <span class='vs'>VS</span>
+                    <input type='button' class='startGame' value='Start Game'>
+                </div>
+           
+
+                <div class='card'data-card='2'>
+                    <div class='cardTop'>O</div>
+                    <div class='cardAvatar'>
+                        <iframe id='iframe2'src="https://giphy.com/embed/xT77XUw1XMVGIxgove"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    </div>
+            
+                    <div class='cardBottom' >
+                        <span class='playerOrBot player' id='player2'>Player</span>
+                        <span class='playerOrBot bot' id='bot2'>Bot</span>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='loadingScreen'>
+            <div class='contestant '>
+                <span class='contestant1'>PLAYER</span>
+                <span class='contestantVS' >VS</span>
+                <span class='contestant2'>BOT</span>
+            </div>
+            <div class='countDown'>
+                <!-- <span class='firstText' >Starts in...</span> -->
+                <span class='timeCounter'>starts in...</span>
+                <!-- <span class='startText' style='font-size: 2em;'>Start!</span> -->
+            </div>
+
+        </div>
+        <div class='gameScreen'>
+            <div class="gameTop">
+                <input class='returnToTitle' type='button' value='Return'>    
+            </div>
+
+            <div class='thePlayersWrapper '>
+                <span class='one boxShadowCSS'>
+                    <span class='name1'></span>
+                    <span class='score1'>0</span>
+                    <img class='trophy1' src='images/trophy.svg'>
+                </span>
+                <span class='boxShadowCSS two'>
+                    <span class='name2'></span>
+                    <span class='score2'>0</span>
+                    <img class='trophy2' src='images/trophy.svg'>
+                </span>
+            </div>              
+
+            <div class='boardWrapper'>
+                <div class='gameBoard'>
+                    <div class='gameCards'data-index='0'></div>
+                    <div class='gameCards'data-index='1'></div>
+                    <div class='gameCards'data-index='2'></div>
+                    <div class='gameCards'data-index='3'></div>
+                    <div class='gameCards'data-index='4'></div>
+                    <div class='gameCards'data-index='5'></div>
+                    <div class='gameCards'data-index='6'></div>
+                    <div class='gameCards'data-index='7'></div>
+                    <div class='gameCards'data-index='8'></div>
+                </div>
+            </div>
+            <div class='roundWrapper'>
+                <div class='round boxShadowCSS'>
+                    <span class='roundText'>Round</span> 
+                    <span class='roundNumber'>1</span>            
+                </div>
+            </div>
+       
+
+        </div>
+
+    </main>
+    <footer>
+        Made By
+        <a href="" target="_blank"></a>
+        <strong>| Tino Andriamirija</strong>
+        <a href="https://github.com/AndriamTino23/Tic-Tac-Toe" target="_blank">Source</a>
+     
+    </footer>
+    
+    <script src='script.js'></script>
+</body>
+</html>                    

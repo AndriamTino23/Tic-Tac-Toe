@@ -1,0 +1,747 @@
+* {
+    margin: 0;
+    padding: 0%;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+@font-face {
+    font-family: tropical-Asian;
+    src: url(myFont/TropicalAsianDemoRegular-11V0.ttf)
+}
+@font-face {
+    font-family: helloTropical;
+    src: url(myFont/HelloTropical.ttf);
+
+}
+
+a {
+    text-decoration: none;
+    font-weight: 100;
+    letter-spacing: 1.5px;
+    font-size: 1.2em;
+    color: #8f8f8f;
+    padding: 10px;
+
+    transition-duration: 1.5s;
+    transition-property: font-size, color;
+}
+
+a:hover {
+    font-size: 2.5em;
+    color: #585656;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 'header' 'main' 'footer'
+}
+
+header {
+    text-align: center;
+    user-select: none;
+}
+
+.title {
+    grid-area: header;
+    text-align: center;
+    font-family: tropical-Asian;
+    font-size: 7em;
+    transition-property: color, letter-spacing;
+    transition-duration: 1s;
+}
+
+.title:hover {
+    color: red;
+    letter-spacing: 2px;
+}
+
+main {
+    grid-area: main;
+}
+
+.titleScreen {
+    display: flex;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+footer {
+    grid-area: footer;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: tropical-asian;
+    margin-top: 65px;
+    padding: 6px;
+    box-shadow: 0px 0px 5px 1px #dacfc152;
+    color: #58462e95;
+}
+
+.displayNone {
+    display: none;
+}
+
+.displayBlock {
+    display: block;
+}
+
+/*              CARDS            */
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 70px;
+    
+}
+
+.card {
+    color: white;
+    box-shadow: 0px 0px 10px 2px #7a7a7a26;
+    width: 350px;
+    border-radius: 30px 30px;
+    height: 450px;
+    user-select: none;
+    overflow: hidden;
+    transition-property: all;
+    transition-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-name: size;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+
+.card:hover {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.144);
+}
+.cardTop {
+    text-align: center;
+    font-family: tropical-Asian;
+    color: black;
+    font-size: 60px;
+    height: 50px;
+    border-radius: 30px 30px 0 0;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.cardTop:hover {
+    color: #4CB9E7;
+
+
+}
+.cardAvatar > iframe{
+    height: 350px;
+    width: 350px;
+}
+
+.cardname {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+::placeholder {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.233);
+}
+
+.cardBottom {
+    height: 50px;
+    display: flex;
+}
+
+.playerOrBot {
+    font-family: tropical-Asian;
+    font-size: 30px;
+    color: black;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    justify-content: center;
+    height: 50px;
+    transition-property: width, font-size, box-shadow;
+    transition-duration: 1s;
+    cursor: pointer;
+
+}
+
+.playerOrBot:hover {
+    font-size: 50px;
+    width: 300px;
+    box-shadow: 
+    inset 0 0 5px 2px rgba(0, 0, 0, 0.089),
+    0 0 10px 5px rgba(0, 0, 0, 0.233);
+    color: rgb(230, 72, 72);
+} 
+
+/* vs sign animation */
+.vs {
+    user-select: none;
+    font-family: tropical-asian;
+    font-weight: 500;
+    animation-name: vs;
+    animation-duration: 1s ;
+    animation-delay: 1s;
+    font-size: 0em;
+    animation-fill-mode: both;
+
+
+}
+
+.startGame {
+    display: none;
+    border: none;
+    font-family: tropical-asian;
+    background-color: transparent;
+    border-radius: 50px;
+    padding: 10px 20px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.096);
+    animation-duration: 1s;
+    animation-fill-mode: forwards; 
+    animation-name: appearButton;
+    transition-duration: 1s;
+    transition-property: transform;
+}
+
+.startGame:hover {
+    transform: scale(1.4);
+}
+
+.startContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#player1 {
+    border-radius: 0 0 0 30px;
+}
+
+#player2 {
+    border-radius: 0 0 0 30px;
+
+}
+
+/*          loading Screeen          */
+.loadingScreen {
+    font-family: tropical-asian;
+    overflow: hidden;
+    font-size: 15vw;
+    display: none;
+}
+
+.contestant {
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+    font-size: 20vw;
+    justify-content: center;
+    align-items: center;
+
+}
+.contestant1 {
+    transform: scale(0);
+}
+.contestantVS {
+    transform: scale(0);
+}
+.contestant2 {
+    transform: scale(0);
+} 
+
+.timeCounter {
+    transform: scale(0);
+}
+.countDown {
+    display: flex;
+    font-size: 1.2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.addTropicalFont {
+    font-family: helloTropical;
+}
+.increaseFont {
+    animation-name: increaseFont;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+/* GAME SCREEN */
+.gameScreen {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    display: none;
+}
+
+.roundWrapper {
+    display: flex;
+    justify-content: center;
+}
+.round{
+    margin-top: 25px;
+    transform: scale(0);
+    width: 200px;
+    text-align: center;
+    background-color: white;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.round:hover {
+    font-size: 2.5em;
+}
+
+.boxShadowCSS {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    font-family: tropical-asian;
+    font-size: 3em;
+    color: rgba(0, 0, 0, 0.657);
+    border-radius: 30px;
+    padding: 0 20px;
+    box-shadow: 0 0 20px 0.5px rgba(0, 0, 0, 0.048);
+    align-self: center;
+    gap: 20px;
+}
+.roundNumber {
+    font-family: helloTropical;
+}
+.boardWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.thePlayersWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 25px;
+    transform: scale(0);
+    gap: 25px;
+}
+.gameBoard {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    grid-template-rows: repeat(3, minmax(75px, 100px));
+    grid-template-columns: repeat(3, minmax(75px, 100px));
+    gap: 12px;
+}
+
+.gameCards {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-family: tropical-asian;
+    color: rgba(0, 0, 0, 0.657);
+    transition-property: all;
+    transition-duration: 200ms;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+}
+
+.gameCards:hover {
+    border-radius: 20px;
+    transform: scale(1.05);
+    background-color: rgb(233, 233, 233);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.096);
+}
+.returnToTitle {
+    border: none;
+    font-family: tropical-asian;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 10px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.096);
+    font-size: 1.6em;
+    transition-duration: 1s;
+    transition-property: font-size;
+    transform: scale(0);
+    margin: 20px 0 0 20px;
+}
+
+.returnToTitle:hover {
+    font-size: 2em;
+}
+
+.score1 {
+    font-family: helloTropical;
+}
+.score2 {
+    font-family: helloTropical;
+}
+
+.highlight {
+    transition-duration: 100ms;
+    transition-property: all;
+}
+
+.highlight:hover {
+    background-color: rgb(255, 172, 161);
+}
+
+.one {
+    position: relative;
+}
+.two {
+    position: relative;
+}
+.trophy1 {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: -70px;
+    width: 70px;
+    transform: scale(0);
+
+}
+
+.trophy2 {
+    position: absolute;
+    right: -70px;
+    bottom: 0;
+    width: 70px;
+    transform: scale(0);
+}
+
+
+/*          Media Queries       */
+ @media (max-width: 750px) {
+     .thePlayersWrapper {
+         flex-direction: column;
+         margin-top: 100px;
+         transition: all 1s linear;
+     }
+
+     .title {
+         font-size: 25vw;
+     }
+
+     .cardContainer {
+         flex-direction: column;
+         gap: 30px;
+         transition: all 1s linear;
+
+    }
+
+     .card {
+        width: 300px;
+        height: 400px;
+        transition: all 1s linear;
+
+    }
+
+    .cardAvatar > iframe{
+        width: 300px;
+        height: 300px;
+        transition: all 1s linear;
+    }
+     .startGame {
+         font-size: 2px;
+         margin-bottom: 30px;
+         transition: all 1s linear;
+
+     }
+     .contestant {
+         flex-direction: column;
+         font-size: 20vh;
+         gap: 0;
+         transition: all 1s linear;
+
+     }
+
+
+ }
+@media(min-width: 751px) and (max-width: 1099px) {
+    .card {
+        width: 250px;
+        height: 350px;
+        transition: all 1s linear;
+
+    }
+    .cardAvatar > iframe{
+        width: 250px;
+        height: 250px;
+        transition: all 1s linear;
+    }
+
+    .cardContainer {
+        gap: 30px;
+        transition: all 1s linear;
+
+    }
+
+    .vs {
+        transform: scale(0.5);
+        transition: all 1s linear;
+
+    }
+}
+ @media (min-width: 1100px) {
+     .cardContainer {
+         flex-direction: row;
+
+     }
+
+
+ }
+/*          key frames          */
+
+.highlightWinMark {
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-name: highlightWinMark;
+}
+
+@keyframes highlightWinMark {
+    from{
+        background-color: #f5f5f5;
+        font-size: 7em;
+    }
+    80% {
+    
+        background-color: rgb(128, 177, 128);
+        box-shadow: 0px 0px 20px 2px #c2c2c2;
+        font-size: 9em;
+    }
+    100% {
+        font-size: 7em;
+    }
+}
+.stalemate {
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-name: stalemate;
+}
+
+@keyframes stalemate {
+    from{
+        background-color: #f5f5f5;
+        font-size: 7em;
+    }
+    80% {
+    
+        background-color: rgba(250, 243, 144, 0.452);
+        box-shadow: 0px 0px 20px 1px #c2c2c257;
+        font-size: 7.6em;
+    }
+    100% {
+        font-size: 7em;
+    }
+}
+
+.fadeMarkersOut {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: fadeMarkersOut;
+}
+
+@keyframes fadeMarkersOut {
+    from {
+        font-size: 7em;
+    }
+    to {
+        font-size: 0;
+        background-color: #f5f5f5;
+        color: transparent;
+    }
+}
+
+.transitionScore {
+    animation-name: transitionScore;
+    animation-fill-mode: forwards;
+    animation-duration: .2s;
+}
+
+@keyframes transitionScore {
+    
+}
+
+.toColor {
+    animation-name: toColor;
+    animation-fill-mode: forwards;
+    animation-duration: .2s;
+}
+
+@keyframes toColor {
+    from {
+        background-color: white;
+    }
+    to {
+        background-color: rgb(255, 185, 176);
+        box-shadow: 0px 0px 20px 1px rgb(255, 185, 176);
+    }
+}
+
+.keepTransition {
+    animation-name: keep;
+    animation-fill-mode: forwards;
+    animation-duration: .5s;
+}
+
+@keyframes keep{
+    from {
+        font-size: 50px;
+        color: rgb(230, 72, 72);
+        width: 300px;
+    }
+    to {
+        font-size: 60px;
+        width: 350px;
+       color: rgb(209, 16, 16);
+
+    }
+}
+
+
+.endTransition {
+    animation-name: end;
+    animation-fill-mode: forwards;
+    animation-duration: .3s;
+}
+
+@keyframes end {
+    from {
+        font-size: 60px;
+        width: 350px;
+        color: rgb(160, 7, 7);
+    }
+    to {
+        font-size: 2em;
+        width: 200px;
+        color: black;
+
+    }
+}
+
+@keyframes increaseFont {
+    0% {transform: scale(0);} 
+    75% {transform: scaleX(1.2);}
+    100% {transform: scale(1);}
+} 
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0% {transform: scale(1);}
+    50% {transform: scaleX(1.2);}
+    100% {transform: scale(0);} 
+}
+
+.quickIncrease {
+    animation-name: quickIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes quickIn {
+    0% {transform: scale(0);} 
+    75% {transform: scaleX(1);}
+    100% {transform: scale(1);}
+} 
+
+.quickFadeOut {
+    animation-name: quickOut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes quickOut {
+    0% {transform: scale(1);}
+    50% {transform: scaleX(1.2);}
+    100% {transform: scale(0);} 
+}
+
+.animateMarker {
+    animation-name: animateMarker;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateMarker {
+    0% {font-size: 0;}
+    60% {font-size: 9em;}
+    100% {font-size: 7em;} 
+}
+
+.bouncy {
+    animation-name: bouncy;
+    animation-duration: 1.4s;
+    animation-fill-mode: forwards;
+}
+@keyframes bouncy {
+    0% {transform: scale(0);} 
+    25% {transform: scale(2, 2)}
+    70% {transform: scale(1);}
+    20% {transform: translateY(30);}
+    100% {transform: translateY(0);}
+}
+
+
+@keyframes appearButton {
+    from {
+        font-size: 0;
+    }
+    to {
+        font-size: 7vh;
+    }
+}
+
+@keyframes vs {
+    from {font-size: 0em}
+    to {font-size: 30vh;}
+}
+
+.shrink {
+    animation-name: shrink;
+    animation-duration: 1s ;
+    animation-delay: 2s;
+
+ 
+}
+@keyframes shrink {
+    from {font-size: 30vh}
+    to {font-size: 20vh;}
+}
+
+@keyframes size {
+    from{
+       transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
